@@ -1,3 +1,7 @@
-export default function CalendarPage() {
-  return <div>Calendar Dashboard Page</div>;
+import CalendarGrid from "./CalendarGrid";
+import ClientCalendarPage from "./client-page";
+
+export default function Page() {
+  return <ClientCalendarPage />;
 }
+          

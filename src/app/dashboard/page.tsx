@@ -331,8 +331,10 @@ export default function Page() {
                 <XAxis 
                   dataKey="date" 
                   tickFormatter={(value) => {
+                    // Deterministic formatter: always outputs e.g. 'Apr 01'
                     const date = new Date(value);
-                    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    return `${MONTHS[date.getMonth()]} ${date.getDate().toString().padStart(2, '0')}`;
                   }}
                   tick={{ fontSize: 12, fill: '#64748b' }}
                   axisLine={{ stroke: '#e2e8f0' }}
