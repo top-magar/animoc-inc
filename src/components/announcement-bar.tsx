@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAnnouncement } from './announcement-context';
-import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AnnouncementBarProps {
@@ -58,15 +56,6 @@ const AnnouncementBar: React.FC<AnnouncementBarProps> = () => {
             <span className="sm:hidden">33% OFF Annual Pro Plan!</span>
           </span>
         </div>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="h-6 w-6 text-white hover:bg-blue-700 hover:text-white"
-          onClick={() => setVisible(false)}
-        >
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
-        </Button>
       </div>
     </div>
   );
