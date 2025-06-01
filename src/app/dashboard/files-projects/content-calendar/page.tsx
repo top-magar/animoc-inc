@@ -1,6 +1,6 @@
 import CalendarClient from "./calendar-client";
 
-export default function ContentCalendarPage() {
+export default function Page() {
   return <CalendarClient />;
 }
 

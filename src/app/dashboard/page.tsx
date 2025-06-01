@@ -3,6 +3,9 @@
 import { useState } from "react"
 import { ChevronRight, ChevronLeft, Search, Bell, Plus, ArrowRight } from "lucide-react"
 import { AreaChart, CartesianGrid, XAxis, Area } from "recharts"
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -330,12 +333,7 @@ export default function Page() {
                 <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f1f5f9" />
                 <XAxis 
                   dataKey="date" 
-                  tickFormatter={(value) => {
-                    // Deterministic formatter: always outputs e.g. 'Apr 01'
-                    const date = new Date(value);
-                    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                    return `${MONTHS[date.getMonth()]} ${date.getDate().toString().padStart(2, '0')}`;
-                  }}
+                  tickFormatter={(value) => dayjs.utc(value).format("MMM DD") }
                   tick={{ fontSize: 12, fill: '#64748b' }}
                   axisLine={{ stroke: '#e2e8f0' }}
                   tickLine={{ stroke: '#e2e8f0' }}
